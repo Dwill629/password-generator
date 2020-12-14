@@ -1,8 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
-function writePassword() {
 
   var upperCaseArray = ["A”, “B”, “C”, “D”, “E”, “F”, “G”, “H”, “I”, “J”, “K”, “L”, “M”, “N”, “O”, “P”, “Q”, “R”, “S”, “T”, “U”, “V”, “W”, “X”, “Y”, “Z" ];
 
@@ -13,20 +11,45 @@ function writePassword() {
   var specialCharArray = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "+", "=" ];
 
 
-  var pwLength = parseInt( prompt("choose your desired password length between 8 and 128 characters.")); if(pwLength >=== 8 && pwlength <=== 128) {
-    alert("Your password will be " + pwLength + "characters long.");
-  } else if (isNaN(pwLength) === true) {
+
+// Write password to the #password input
+function writePassword() {
+
+  var pwLength = parseInt( prompt("choose your desired password length between 8 and 128 characters.")); 
+  if (isNaN(pwLength) === true){
     alert ("The password length must be provided as a number.");
-  } else {
-    alert ("That is not a valid password length");
+    return;
+  } 
+
+  if (pwLength < 8) {
+    alert ("The password must contain at least 8 characters");
+  }
+  
+  if (pwLength > 128) {
+    alert ("You have selected too many characters");
   }
 
+  // if(pwLength >=== 8 && pwlength <=== 128) {
+  //   alert("Your password will be " + pwLength + "characters long.");
+  // } else if (isNaN(pwLength) === true) {
+  //   alert ("The password length must be provided as a number.");
+  // } else {
+  //   alert ("That is not a valid password length");
+  // }
+
   var hasUpperCase = confirm ("would you like to include an uppercase character?")
-  var haslowerCase = confirm ("would you like to include a lowercase character?")
+  var hasLowerCase = confirm ("would you like to include a lowercase character?")
   var hasNum = confirm ("would you like to include a number?")
   var hasChar = confirm ("would you like to include a special character?")
 
+if (hasUpperCase === false &&
+  hasLowerCase === false &&
+  hasNum === false &&
+  hasChar === false) {
+    alert ("You must select at least one type of character.")
+  }
 
+  
 
 
 
