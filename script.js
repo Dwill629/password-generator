@@ -49,7 +49,24 @@ if (hasUpperCase === false &&
     alert ("You must select at least one type of character.")
   }
 
+  var pwInput = {
+    hasUpperCase : hasUpperCase,
+    hasLowerCase : hasLowerCase,
+    hasNum : hasNum,
+    hasChar : hasChar
+  };
+
+  return pwInput;
+}
+
+// Function to get random character from an array
+
+function getRandom (arr) {
+  var randIndex = Math.floor (Math.random() * arr.length);
+  var randElement = arr[randIndex];
   
+  return randElement;
+}
 
 
 
