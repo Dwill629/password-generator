@@ -6,7 +6,7 @@ var generateBtn = document.querySelector("#generate");
 
   var lowerCaseArray = ["a”, “b”, “c”, “d”, “e”, “f”, “g”, “h”, “i”, “j”, “k”, “l”, “m”, “n”, “o”, “p”, “q”, “r”, “s”, “t”, “u”, “v”, “w”, “x”, “y”, “z" ];
 
-  var numArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  var numArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   var specialCharArray = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "+", "=" ];
 
@@ -14,7 +14,7 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 // Funtion to prompt user for pw type selection
-function writePassword() {
+function createPassword() {
 
   //Variable to store the the number of characters from user input
   var pwLength = parseInt( prompt("choose your desired password length between 8 and 128 characters.")); 
@@ -25,12 +25,13 @@ function writePassword() {
 
 //conditional to make sure pw is longer than 8 characters
   if (pwLength < 8) {
-    alert ("The password must contain at least 8 characters");
+    alert ("The password must contain at least 8 characters"); return;
   }
 
  //conditional to make sure pw is not more than 128 characters 
   if (pwLength > 128) {
     alert ("You have selected too many characters");
+    return;
   }
 
   // if(pwLength >=== 8 && pwlength <=== 128) {
@@ -43,17 +44,17 @@ function writePassword() {
 
 
   //variables to store boolean on which characters to include 
-  var hasUpperCase = confirm ("would you like to include an uppercase character?")
-  var hasLowerCase = confirm ("would you like to include a lowercase character?")
-  var hasNum = confirm ("would you like to include a number?")
-  var hasSpecialChar = confirm ("would you like to include a special character?")
+  var hasUpperCase = confirm ("would you like to include an uppercase character?");
+  var hasLowerCase = confirm ("would you like to include a lowercase character?");
+  var hasNum = confirm ("would you like to include a number?");
+  var hasSpecialChar = confirm ("would you like to include a special character?");
 
   //conditional statement to make sure the user selects at least one character type
   if (hasUpperCase === false &&
   hasLowerCase === false &&
   hasNum === false &&
   hasSpecialChar === false) {
-    alert ("You must select at least one type of character.")
+    alert ("You must select at least one type of character."); return;
   }
 
   //object to store user input
@@ -68,7 +69,7 @@ function writePassword() {
 }
 
 // Function to get random character from an array
-function getRandom (arr) {
+function getRandom(arr) {
   var randIndex = Math.floor (Math.random() * arr.length);
   var randElement = arr[randIndex];
   
@@ -78,7 +79,7 @@ function getRandom (arr) {
 //function to generate pw with user input
 function generatePassword () {
 
-  var pwTypeChoice = writePassword ();
+  var pwTypeChoice = createPassword ();
   //variable to store soup as it's being concatenated
   var finalPassword = [];
 
@@ -96,7 +97,7 @@ function generatePassword () {
 
   //conditional statement that adds array of lowercase into array of possible characters based on user input
   if (pwTypeChoice.hasLowerCase) {
-  possibleChar = possibleChar.concat(hasLowerCase);
+  possibleChar = possibleChar.concat(lowerCaseArray);
   guaranteedChar.push(getRandom(lowerCaseArray));
   }
 
@@ -112,7 +113,7 @@ function generatePassword () {
   guaranteedChar.push(getRandom(specialCharArray));
   }
 
-  //for loop to iterate over the password length from the pwinput object, selectinf randim indices from the array of possible characters and concatenating those characters into the final Password variable
+  //for loop to iterate over the password length from the pwinput object, selecting random indexes from the array of possible characters and concatenating those characters into the final Password variable
   for (var i = 0; i < pwTypeChoice.length; i++) {
   var possibleChar = getRandom(possibleChar);
 
