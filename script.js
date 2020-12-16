@@ -2,9 +2,9 @@
 var generateBtn = document.querySelector("#generate");
 
 
-  var upperCaseArray = ["A”, “B”, “C”, “D”, “E”, “F”, “G”, “H”, “I”, “J”, “K”, “L”, “M”, “N”, “O”, “P”, “Q”, “R”, “S”, “T”, “U”, “V”, “W”, “X”, “Y”, “Z" ];
+  var upperCaseArray = [ "A", "B", "C", "D","E","F","G","H","I","J","K","L","M","N", "O", "P", "Q", "R","S","T","U","V","W","X","Y","Z"];
 
-  var lowerCaseArray = ["a”, “b”, “c”, “d”, “e”, “f”, “g”, “h”, “i”, “j”, “k”, “l”, “m”, “n”, “o”, “p”, “q”, “r”, “s”, “t”, “u”, “v”, “w”, “x”, “y”, “z" ];
+  var lowerCaseArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
   var numArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -62,7 +62,8 @@ function createPassword() {
     hasUpperCase : hasUpperCase,
     hasLowerCase : hasLowerCase,
     hasNum : hasNum,
-    hasSpecialChar : hasSpecialChar
+    hasSpecialChar : hasSpecialChar,
+    pwLength :pwLength
   };
 
   return pwInput;
@@ -77,10 +78,10 @@ function getRandom(arr) {
 }
 
 //function to generate pw with user input
-function generatePassword () {
+function generatePassword() {
 
   var pwTypeChoice = createPassword ();
-  //variable to store soup as it's being concatenated
+  //variable to store password as it's being concatenated
   var finalPassword = [];
 
   //Array to store types of characters to include
@@ -108,7 +109,7 @@ function generatePassword () {
   }
 
   //conditional statement that adds array of special characters into array of possible characters based on user input
-  if (pwTypeChoice.hasChar) {
+  if (pwTypeChoice.hasSpecialChar) {
   possibleChar = possibleChar.concat(specialCharArray);
   guaranteedChar.push(getRandom(specialCharArray));
   }
@@ -126,7 +127,7 @@ function generatePassword () {
   }
 
   //transform the final password into a string and pass into writePassword
-  return finalPassword.join(",");
+  return finalPassword.join("");
 
 }
 
