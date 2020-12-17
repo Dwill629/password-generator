@@ -1,5 +1,21 @@
 # 03 JavaScript: Password Generator
 
+This project is a password generator allowing you to select the character length and type of characters you would like to include in your password. Whether it be uppercase, lowercase, a number and/or a special character, this generator will guarantee the selected type are included in your password.
+
+My password generater begins with a prompt asking for your desired password length. Then proceeds to confirm whether you would like to include an assortment of character types. Once confirmed, and the magic happens, you will see your desired password populate.  
+
+![03-javascript-homework-demo.png](assets.03-javascript-homework-demo.png)
+
+# Contact
+
+If you want to contact me, you can reach me at dwill629@gmail.com
+
+# Tech/framework used
+
+Vscode
+
+# see the project Directions below
+
 ## Your Task
 
 This week’s homework requires you to create an application that an employee can use to generate a random password based on criteria they’ve selected by modifying starter code. This app will run in the browser, and will feature dynamically updated HTML and CSS powered by JavaScript code that you write. It will have a clean and polished user interface that is responsive, ensuring that it adapts to multiple screen sizes.
