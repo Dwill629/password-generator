@@ -34,14 +34,6 @@ function createPassword() {
     return;
   }
 
-  // if(pwLength >=== 8 && pwlength <=== 128) {
-  //   alert("Your password will be " + pwLength + "characters long.");
-  // } else if (isNaN(pwLength) === true) {
-  //   alert ("The password length must be provided as a number.");
-  // } else {
-  //   alert ("That is not a valid password length");
-  // }
-
 
   //variables to store boolean on which characters to include 
   var hasUpperCase = confirm("would you like to include an uppercase character?");
@@ -114,22 +106,17 @@ function generatePassword() {
     guaranteedChar.push(getRandom(specialCharArray));
   }
 
-  //for loop to iterate over the password length from the pwinput object, selecting random indexes from the array of possible characters and concatenating those characters into the final Password variable
+  //for loop to pull random characters of the remaining password length using possibleCharacters array and putting into possibleChar variable.
   for (var i = 0; i < pwTypeChoice.pwLength - guaranteedChar.length; i++) {
     var possibleChar = getRandom(possibleCharacters);
 
     console.log(possibleChar);
-
+    //to push random characters into final password for the remaining password length amount.
     finalPassword.push(possibleChar);
   }
 
-
+  //concatenates the guarenteedChar array with the final password pushing all needed characters into the lastPassword variable
   var lastPassword = finalPassword.concat(guaranteedChar);
-
-  //Mix at lwast one of each guaranteed characters in the final Password
-  //for (var i = 0; i < guaranteedChar.length; i++) {
-    //finalPassword[i] = guaranteedChar[i];
- // }
 
   //transform the final password into a string and pass into writePassword
   return lastPassword.join("");
