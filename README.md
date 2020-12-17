@@ -4,7 +4,7 @@ This project is a password generator allowing you to select the character length
 
 My password generater begins with a prompt asking for your desired password length. Then proceeds to confirm whether you would like to include an assortment of character types. Once confirmed, and the magic happens, you will see your desired password populate.  
 
-![03-javascript-homework-demo.png](assets.03-javascript-homework-demo.png)
+![03-javascript-homework-demo.png](assets/03-javascript-homework-demo.png)
 
 # Contact
 
